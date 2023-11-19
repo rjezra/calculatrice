@@ -39,7 +39,7 @@ function pi() {
     screen.value = 3.14159265359;
 }
 function e() {
-    screen.value = Math.expo(screen.value);
+    screen.value = Math.exp(screen.value);
 }
 
 function fact() {
