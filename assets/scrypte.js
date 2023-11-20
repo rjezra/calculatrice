@@ -1,37 +1,20 @@
 const screen = document.querySelector('#screen');
 const btn = document.querySelectorAll('.button');
-/*
-for (let item of btn) {
-    item.addEventListener('click', (e) => {
-        btntext = e.target.innerText;
-        if (btntext == 'x') {
-            btntext = '*';
-        }
-        if (btntext == '÷') {
-            btntext = '/';
-        }
-        screen.value += btntext;
-
-
-    });
-}
-*/
 function vetificationInput(event) {
-      var inputType = (event.which) ? event.which : event.keyCode;
-      if (
-        (inputType  < 48 || inputType  > 57) && 
-        inputType  !== 43 && // +
+    var inputType = (event.which) ? event.which : event.keyCode;
+    if (
+        (inputType < 48 || inputType > 57) &&
+        inputType !== 43 && // +
         inputType !== 45 && // -
-        inputType  !== 42 && // *
-        inputType  !== 47 && // /
-        inputType  !== 37 && // %
-        inputType  !== 40 && // (
-        inputType  !== 41    // )
-      ) {
+        inputType !== 42 && // *
+        inputType !== 47 && // /
+        inputType !== 37 && // %
+        inputType !== 40 && // (
+        inputType !== 41    // )
+    ) {
         event.preventDefault();
-      }
     }
-
+}
 for (let item of btn) {
     item.addEventListener('click', (e) => {
         const btntext = e.target.innerText;
