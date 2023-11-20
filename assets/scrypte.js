@@ -16,6 +16,22 @@ for (let item of btn) {
     });
 }
 */
+function vetificationInput(event) {
+      var inputType = (event.which) ? event.which : event.keyCode;
+      if (
+        (inputType  < 48 || inputType  > 57) && 
+        inputType  !== 43 && // +
+        inputType !== 45 && // -
+        inputType  !== 42 && // *
+        inputType  !== 47 && // /
+        inputType  !== 37 && // %
+        inputType  !== 40 && // (
+        inputType  !== 41    // )
+      ) {
+        event.preventDefault();
+      }
+    }
+
 for (let item of btn) {
     item.addEventListener('click', (e) => {
         const btntext = e.target.innerText;
@@ -27,7 +43,6 @@ for (let item of btn) {
         console.log(btntext);
     });
 }
-
 function isOperator(char) {
     return ['+', '-', '*', '/', '%'].includes(char);
 }
@@ -41,13 +56,9 @@ function cos() {
 function pow() {
     screen.value = Math.pow(screen.value, 2);
 }
-
-
 function tan() {
     screen.value = Math.tan(screen.value);
 }
-
-
 function sqrt() {
     screen.value = Math.sqrt(screen.value, 2);
 }
@@ -60,7 +71,6 @@ function pi() {
 function e() {
     screen.value = Math.exp(screen.value);
 }
-
 function fact() {
     var i, nombre, k;
     k = 1;

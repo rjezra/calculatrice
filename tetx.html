@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restriction de saisie</title>
+  <script>
+    function allowOnlyNumericAndOperators(event) {
+      // Récupérer le code de la touche pressée
+      var charCode = (event.which) ? event.which : event.keyCode;
+
+      // Autoriser uniquement les chiffres (0-9), +, -, *, /, %, (, )
+      if (
+        (charCode < 48 || charCode > 57) && // Chiffres
+        charCode !== 43 && // +
+        charCode !== 45 && // -
+        charCode !== 42 && // *
+        charCode !== 47 && // /
+        charCode !== 37 && // %
+        charCode !== 40 && // (
+        charCode !== 41    // )
+      ) {
+        event.preventDefault();
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <label for="restrictedInput">Saisissez uniquement des chiffres et opérateurs :</label>
+  <input type="text" id="restrictedInput" onkeypress="allowOnlyNumericAndOperators(event)">
+
+</body>
+</html>
